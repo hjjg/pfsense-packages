@@ -32,14 +32,14 @@
 /* ========================================================================== */
 
 define('ETC_SERVICES','/etc/services');
-define('ETC_INETD','/etc/inetd.conf');
+define('ETC_INETD','/var/etc/inetd.conf');
 define('ETC_HOSTS_ALLOW','/etc/hosts.allow');
 define('ETC_RC_CONF','/etc/rc.conf.local');
 
 function checkmk_install() {
 	// Download latest check_mk version from head repo
 	$checkmk_bin="/usr/local/bin/check_mk_agent";
-	mwexec("fetch -o {$checkmk_bin} 'http://git.mathias-kettner.de/git/?p=check_mk.git;a=blob_plain;f=agents/check_mk_agent.freebsd;hb=HEAD'");
+	mwexec("fetch -o {$checkmk_bin} 'http://git.mathias-kettner.de/git/?p=check_mk.git;a=blob_plain;f=agents/check_mk_agent.freebsd;hb=e13899bde8bdafe13780427811c8153c59be807f'");
 	chmod($checkmk_bin,0755);
 	sync_package_checkmk();
 }
